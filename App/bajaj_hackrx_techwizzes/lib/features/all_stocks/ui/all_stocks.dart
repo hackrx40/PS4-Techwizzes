@@ -1,9 +1,7 @@
 import 'package:bajaj_hackrx_techwizzes/features/all_stocks/widgets/stack_list_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../utils/app_colors.dart';
-import '../../main_representation/ui/home_representation.dart';
 
 class AllStocks extends StatefulWidget {
   const AllStocks({super.key});

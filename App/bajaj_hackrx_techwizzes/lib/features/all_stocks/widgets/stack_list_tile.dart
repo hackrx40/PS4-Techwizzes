@@ -153,12 +153,13 @@ class StocksListTile2 extends StatelessWidget {
             ],
           ),
           IconButton(
-              onPressed: () {},
-              splashRadius: 20,
-              icon: Icon(
-                TernavIcons.light.bookmark,
-                color: AppColors.textColor2,
-              ))
+            onPressed: () {},
+            splashRadius: 20,
+            icon: Icon(
+              TernavIcons.light.bookmark,
+              color: AppColors.textColor2,
+            ),
+          )
         ],
       ),
     );
