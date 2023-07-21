@@ -1,304 +1,304 @@
 {
-  "stocks":[
+  "stocks": [
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "783.4",
-        "pClose": "783.4",
-        "symbol": "JSWSTEEL"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 767.56,
+      "pClose": "783.4",
+      "symbol": "JSWSTEEL"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "2421.45",
-        "pClose": "2421.45",
-        "symbol": "LT"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 2411.69,
+      "pClose": "2421.45",
+      "symbol": "LT"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1518.85",
-        "pClose": "1518.85",
-        "symbol": "BAJAJFINSV"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1535.95,
+      "pClose": "1518.85",
+      "symbol": "BAJAJFINSV"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "2402",
-        "pClose": "2402",
-        "symbol": "ADANIENT"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 24033.37,
+      "pClose": "2402",
+      "symbol": "ADANIENT"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "569.8",
-        "pClose": "569.8",
-        "symbol": "SBIN"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 559.1,
+      "pClose": "569.8",
+      "symbol": "SBIN"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "586.65",
-        "pClose": "586.65",
-        "symbol": "TATAMOTORS"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 576.34,
+      "pClose": "586.65",
+      "symbol": "TATAMOTORS"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "227.25",
-        "pClose": "227.25",
-        "symbol": "COALINDIA"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 248.23,
+      "pClose": "227.25",
+      "symbol": "COALINDIA"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "651.95",
-        "pClose": "651.95",
-        "symbol": "HDFCLIFE"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 659.22,
+      "pClose": "651.95",
+      "symbol": "HDFCLIFE"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "854.95",
-        "pClose": "854.95",
-        "symbol": "TATACONSUM"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 846.85,
+      "pClose": "854.95",
+      "symbol": "TATACONSUM"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1840.55",
-        "pClose": "1840.55",
-        "symbol": "KOTAKBANK"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1825.19,
+      "pClose": "1840.55",
+      "symbol": "KOTAKBANK"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "9540.65",
-        "pClose": "9540.65",
-        "symbol": "MARUTI"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 9532.95,
+      "pClose": "9540.65",
+      "symbol": "MARUTI"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "365.4",
-        "pClose": "365.4",
-        "symbol": "BPCL"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 370.6,
+      "pClose": "365.4",
+      "symbol": "BPCL"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "3028.1",
-        "pClose": "3028.1",
-        "symbol": "TITAN"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 3022.54,
+      "pClose": "3028.1",
+      "symbol": "TITAN"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "7090.2",
-        "pClose": "7090.2",
-        "symbol": "BAJFINANCE"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 7070.71,
+      "pClose": "7090.2",
+      "symbol": "BAJFINANCE"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1334.05",
-        "pClose": "1334.05",
-        "symbol": "INDUSINDBK"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1342.15,
+      "pClose": "1334.05",
+      "symbol": "INDUSINDBK"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1299.9",
-        "pClose": "1299.9",
-        "symbol": "SBILIFE"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1291.81,
+      "pClose": "1299.9",
+      "symbol": "SBILIFE"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1676.15",
-        "pClose": "1676.15",
-        "symbol": "HDFCBANK"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1692.98,
+      "pClose": "1676.15",
+      "symbol": "HDFCBANK"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1021.8",
-        "pClose": "1021.8",
-        "symbol": "SUNPHARMA"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1045.87,
+      "pClose": "1021.8",
+      "symbol": "SUNPHARMA"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "872.2",
-        "pClose": "872.2",
-        "symbol": "BHARTIARTL"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 885.37,
+      "pClose": "872.2",
+      "symbol": "BHARTIARTL"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "3544.85",
-        "pClose": "3544.85",
-        "symbol": "EICHERMOT"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 3547.09,
+      "pClose": "3544.85",
+      "symbol": "EICHERMOT"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "937.45",
-        "pClose": "937.45",
-        "symbol": "ICICIBANK"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 931.04,
+      "pClose": "937.45",
+      "symbol": "ICICIBANK"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "3348.25",
-        "pClose": "3348.25",
-        "symbol": "ASIANPAINT"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 3340.07,
+      "pClose": "3348.25",
+      "symbol": "ASIANPAINT"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "4992.15",
-        "pClose": "4992.15",
-        "symbol": "BRITANNIA"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 4991.01,
+      "pClose": "4992.15",
+      "symbol": "BRITANNIA"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1395",
-        "pClose": "1395",
-        "symbol": "M&M"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1402.2,
+      "pClose": "1395",
+      "symbol": "M&M"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1293.35",
-        "pClose": "1293.35",
-        "symbol": "INFY"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1289.04,
+      "pClose": "1293.35",
+      "symbol": "INFY"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "189.1",
-        "pClose": "189.1",
-        "symbol": "NTPC"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 175.84,
+      "pClose": "189.1",
+      "symbol": "NTPC"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1009.9",
-        "pClose": "1009.9",
-        "symbol": "CIPLA"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1008.04,
+      "pClose": "1009.9",
+      "symbol": "CIPLA"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "158.55",
-        "pClose": "158.55",
-        "symbol": "ONGC"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 133.76,
+      "pClose": "158.55",
+      "symbol": "ONGC"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "978.2",
-        "pClose": "978.2",
-        "symbol": "AXISBANK"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 964.13,
+      "pClose": "978.2",
+      "symbol": "AXISBANK"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "2779",
-        "pClose": "2779",
-        "symbol": "HDFC"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 27781.06,
+      "pClose": "2779",
+      "symbol": "HDFC"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "2529.5",
-        "pClose": "2529.5",
-        "symbol": "RELIANCE"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 2540.23,
+      "pClose": "2529.5",
+      "symbol": "RELIANCE"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "381.7",
-        "pClose": "381.7",
-        "symbol": "WIPRO"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 392.54,
+      "pClose": "381.7",
+      "symbol": "WIPRO"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "4716.3",
-        "pClose": "4716.3",
-        "symbol": "BAJAJ-AUTO"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 4719.83,
+      "pClose": "4716.3",
+      "symbol": "BAJAJ-AUTO"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "5107.85",
-        "pClose": "5107.85",
-        "symbol": "DRREDDY"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 5117.59,
+      "pClose": "5107.85",
+      "symbol": "DRREDDY"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "449.35",
-        "pClose": "449.35",
-        "symbol": "ITC"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 457.74,
+      "pClose": "449.35",
+      "symbol": "ITC"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "420.2",
-        "pClose": "420.2",
-        "symbol": "HINDALCO"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 415.73,
+      "pClose": "420.2",
+      "symbol": "HINDALCO"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "2661.25",
-        "pClose": "2661.25",
-        "symbol": "HINDUNILVR"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 2661.91,
+      "pClose": "2661.25",
+      "symbol": "HINDUNILVR"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "756.5",
-        "pClose": "756.5",
-        "symbol": "ADANIPORTS"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 779.71,
+      "pClose": "756.5",
+      "symbol": "ADANIPORTS"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "8260.65",
-        "pClose": "8260.65",
-        "symbol": "ULTRACEMCO"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 8266.37,
+      "pClose": "8260.65",
+      "symbol": "ULTRACEMCO"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "5126.9",
-        "pClose": "5126.9",
-        "symbol": "APOLLOHOSP"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 5117.64,
+      "pClose": "5126.9",
+      "symbol": "APOLLOHOSP"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "22744.1",
-        "pClose": "22744.1",
-        "symbol": "NESTLEIND"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 22740.13,
+      "pClose": "22744.1",
+      "symbol": "NESTLEIND"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "250.15",
-        "pClose": "250.15",
-        "symbol": "POWERGRID"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 253.66,
+      "pClose": "250.15",
+      "symbol": "POWERGRID"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "111.55",
-        "pClose": "111.55",
-        "symbol": "TATASTEEL"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 111.41,
+      "pClose": "111.55",
+      "symbol": "TATASTEEL"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1108.1",
-        "pClose": "1108.1",
-        "symbol": "TECHM"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1105.4,
+      "pClose": "1108.1",
+      "symbol": "TECHM"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "3601.55",
-        "pClose": "3601.55",
-        "symbol": "DIVISLAB"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 3600.58,
+      "pClose": "3601.55",
+      "symbol": "DIVISLAB"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1743.1",
-        "pClose": "1743.1",
-        "symbol": "GRASIM"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1745.54,
+      "pClose": "1743.1",
+      "symbol": "GRASIM"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "1170.25",
-        "pClose": "1170.25",
-        "symbol": "HCLTECH"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 1181.81,
+      "pClose": "1170.25",
+      "symbol": "HCLTECH"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "3215.45",
-        "pClose": "3215.45",
-        "symbol": "TCS"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 3228.07,
+      "pClose": "3215.45",
+      "symbol": "TCS"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "2828.75",
-        "pClose": "2828.75",
-        "symbol": "HEROMOTOCO"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 2821.06,
+      "pClose": "2828.75",
+      "symbol": "HEROMOTOCO"
     },
     {
-        "lastUpdated": "2023-07-21T15:30:00.000Z",
-        "ltp": "680.35",
-        "pClose": "680.35",
-        "symbol": "UPL"
+      "lastUpdated": "2023-07-21T12:42:30.311Z",
+      "ltp": 676.64,
+      "pClose": "680.35",
+      "symbol": "UPL"
     }
-]
+  ]
 }
