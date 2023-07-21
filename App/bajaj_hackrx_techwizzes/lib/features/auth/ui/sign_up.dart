@@ -1,23 +1,43 @@
-import 'package:bajaj_hackrx_techwizzes/features/auth/ui/login_screen.dart';
+import 'package:bajaj_hackrx_techwizzes/services/auth/auth_services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../utils/app_colors.dart';
-import '../../home/ui/home_screen.dart';
 import '../widgets/custom_textfield.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final AuthServices authServices = AuthServices();
+  bool _isLoading = false;
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController clientCodeContoller = TextEditingController();
+  final TextEditingController pinController = TextEditingController();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    clientCodeContoller.dispose();
+    pinController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
     return Scaffold(
-        body: Column(
-      children: [
-        Expanded(
-          flex: 1,
-          child: Container(
+        //  resizeToAvoidBottomInset: false,
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
             color: Colors.blue,
             height: 0.4.sh,
             width: double.maxFinite,
@@ -55,10 +75,7 @@ class SignUp extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        Expanded(
-          flex: 2,
-          child: Padding(
+          Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
             child: Column(
@@ -80,7 +97,8 @@ class SignUp extends StatelessWidget {
                 SizedBox(
                   height: size.height * 0.01,
                 ),
-                customTextField(hintText: 'Enter your name'),
+                customTextField(
+                    controller: nameController, hintText: 'Enter your name'),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
@@ -96,7 +114,9 @@ class SignUp extends StatelessWidget {
                 SizedBox(
                   height: size.height * 0.01,
                 ),
-                customTextField(hintText: 'Enter your client code'),
+                customTextField(
+                    controller: clientCodeContoller,
+                    hintText: 'Enter your client code'),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
@@ -113,6 +133,7 @@ class SignUp extends StatelessWidget {
                   height: size.height * 0.01,
                 ),
                 customTextField(
+                  controller: pinController,
                   hintText: 'Enter your pin',
                   suffixIcon: const Icon(
                     Icons.visibility_off,
@@ -127,12 +148,23 @@ class SignUp extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
-                      ),
-                    );
+                    setState(() {
+                      _isLoading = true;
+                    });
+                    authServices.registerUser(
+                        context: context,
+                        name: nameController.text,
+                        code: clientCodeContoller.text,
+                        pin: pinController.text);
+                    setState(() {
+                      _isLoading = false;
+                    });
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => const LoginScreen(),
+                    //   ),
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -152,8 +184,8 @@ class SignUp extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     ));
   }
 }
