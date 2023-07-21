@@ -270,6 +270,7 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Container(
                                   height: 25.h,
@@ -293,6 +294,7 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                                   '176.23',
                                   style: TextStyle(
                                       fontSize: 15.sp,
+                                      letterSpacing: 1,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ],
