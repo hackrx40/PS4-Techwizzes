@@ -132,168 +132,176 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                 ),
               ),
               SizedBox(height: 15.h),
-              ListView.builder(
-                  itemCount: 5,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: 65.h,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.w),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                          color: Colors.grey.shade100, //color of border
-                          width: 3, //width of border
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: ListView.builder(
+                    itemCount: 5,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return Container(
+                        height: 70.h,
+                        margin: const EdgeInsets.only(bottom: 10),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 16.w, vertical: 8.w),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.grey.shade100, //color of border
+                            width: 3, //width of border
+                          ),
                         ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          // Container(
-                          //   height: 45.h,
-                          //   width: 45.h,
-                          //   padding: const EdgeInsets.all(8),
-                          //   decoration: BoxDecoration(
-                          //     borderRadius: BorderRadius.circular(15),
-                          //     color: Colors.grey.shade200,
-                          //   ),
-                          //   child: Image.asset(
-                          //     'assets/icons/apple.png',
-                          //   ),
-                          // ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // Container(
+                            //   height: 45.h,
+                            //   width: 45.h,
+                            //   padding: const EdgeInsets.all(8),
+                            //   decoration: BoxDecoration(
+                            //     borderRadius: BorderRadius.circular(15),
+                            //     color: Colors.grey.shade200,
+                            //   ),
+                            //   child: Image.asset(
+                            //     'assets/icons/apple.png',
+                            //   ),
+                            // ),
 
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              LogoTexts(
-                                size: 17,
-                                color: Colors.black,
-                                texts: 'Apple Inc.',
-                                isBold: true,
-                              ),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              LogoTexts(
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                LogoTexts(
+                                  size: 14.sp,
+                                  color: AppColors.textColor,
+                                  texts: 'Apple Inc.',
+                                  isLetterSpacing: true,
+                                  isBold: true,
+                                ),
+                                const LogoTexts(
                                   size: 13,
                                   color: Colors.grey,
                                   texts: 'AAPL',
-                                  isBold: false)
-                            ],
-                          ),
-                          const SizedBox(
-                            width: 45,
-                          ),
-                          Flexible(
-                            flex: 2,
-                            child: SizedBox(
-                              height: 50,
-                              width: 60,
-                              child: LineChart(
-                                LineChartData(
-                                    minX: 0,
-                                    minY: 0,
-                                    maxX: 10,
-                                    maxY: 10,
-                                    titlesData: const FlTitlesData(
-                                      show: true,
-                                      rightTitles: AxisTitles(
-                                        sideTitles:
-                                            SideTitles(showTitles: false),
-                                      ),
-                                      topTitles: AxisTitles(
-                                        sideTitles:
-                                            SideTitles(showTitles: false),
-                                      ),
-                                      bottomTitles: AxisTitles(
-                                        sideTitles: SideTitles(
-                                          showTitles: false,
+                                  isBold: false,
+                                )
+                              ],
+                            ),
+                            const Spacer(),
+                            Flexible(
+                              flex: 2,
+                              child: SizedBox(
+                                height: 50,
+                                width: 60,
+                                child: LineChart(
+                                  LineChartData(
+                                      minX: 0,
+                                      minY: 0,
+                                      maxX: 10,
+                                      maxY: 10,
+                                      titlesData: const FlTitlesData(
+                                        show: true,
+                                        rightTitles: AxisTitles(
+                                          sideTitles:
+                                              SideTitles(showTitles: false),
+                                        ),
+                                        topTitles: AxisTitles(
+                                          sideTitles:
+                                              SideTitles(showTitles: false),
+                                        ),
+                                        bottomTitles: AxisTitles(
+                                          sideTitles: SideTitles(
+                                            showTitles: false,
+                                          ),
+                                        ),
+                                        leftTitles: AxisTitles(
+                                          sideTitles: SideTitles(
+                                            showTitles: false,
+                                          ),
                                         ),
                                       ),
-                                      leftTitles: AxisTitles(
-                                        sideTitles: SideTitles(
-                                          showTitles: false,
+                                      borderData: FlBorderData(
+                                        show: false,
+                                      ),
+                                      gridData: FlGridData(
+                                        getDrawingHorizontalLine: (value) =>
+                                            const FlLine(
+                                          strokeWidth: 0,
                                         ),
+                                        getDrawingVerticalLine: (value) =>
+                                            const FlLine(strokeWidth: 0),
                                       ),
-                                    ),
-                                    borderData: FlBorderData(
-                                      show: false,
-                                    ),
-                                    gridData: FlGridData(
-                                      getDrawingHorizontalLine: (value) =>
-                                          const FlLine(
-                                        strokeWidth: 0,
-                                      ),
-                                      getDrawingVerticalLine: (value) =>
-                                          const FlLine(strokeWidth: 0),
-                                    ),
-                                    lineBarsData: [
-                                      LineChartBarData(
-                                        spots: const [
-                                          FlSpot(0, 1),
-                                          FlSpot(0.5, 0.5),
-                                          FlSpot(1, 2),
-                                          FlSpot(1.5, 2.5),
-                                          FlSpot(2, 4),
-                                          FlSpot(2.2, 4.8),
-                                          FlSpot(2.5, 4.5),
-                                          FlSpot(3, 1),
-                                          FlSpot(4, 3),
-                                          FlSpot(5, 8),
-                                          FlSpot(6, 3),
-                                          FlSpot(7, 5),
-                                          FlSpot(8, 1),
-                                          FlSpot(9, 3),
-                                          FlSpot(10, 6)
-                                        ],
-                                        isCurved: true,
-                                        dotData: const FlDotData(show: false),
-                                        barWidth: 3,
-                                        belowBarData: BarAreaData(
-                                          show: false,
+                                      lineBarsData: [
+                                        LineChartBarData(
+                                          spots: const [
+                                            FlSpot(0, 1),
+                                            FlSpot(0.5, 0.5),
+                                            FlSpot(1, 2),
+                                            FlSpot(1.5, 2.5),
+                                            FlSpot(2, 4),
+                                            FlSpot(2.2, 4.8),
+                                            FlSpot(2.5, 4.5),
+                                            FlSpot(3, 1),
+                                            FlSpot(4, 3),
+                                            FlSpot(5, 8),
+                                            FlSpot(6, 3),
+                                            FlSpot(7, 5),
+                                            FlSpot(8, 1),
+                                            FlSpot(9, 3),
+                                            FlSpot(10, 6)
+                                          ],
+                                          isCurved: true,
+                                          dotData: const FlDotData(show: false),
+                                          barWidth: 3,
+                                          belowBarData: BarAreaData(
+                                            show: false,
+                                          ),
+                                          gradient:
+                                              const LinearGradient(colors: [
+                                            Color(0XFFA4BEF4),
+                                            Color(0XFF3BA8B3),
+                                          ]),
                                         ),
-                                        gradient: const LinearGradient(colors: [
-                                          Color(0XFFA4BEF4),
-                                          Color(0XFF3BA8B3),
-                                        ]),
-                                      ),
-                                    ]),
+                                      ]),
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                height: 25,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: const Color(0XFF2ECB7F),
+                            SizedBox(
+                              width: 20.w,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  height: 25.h,
+                                  // width: 50,
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 6.w),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: const Color(0XFF2ECB7F),
+                                  ),
+                                  child: Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        '+2.65',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12.sp),
+                                      )),
                                 ),
-                                child: const Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      '+2.65',
-                                      style: TextStyle(color: Colors.white),
-                                    )),
-                              ),
-                              const Text(
-                                '176.23',
-                                style: TextStyle(
-                                    fontSize: 17, fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
+                                Text(
+                                  '176.23',
+                                  style: TextStyle(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+              ),
             ],
           ),
         ),
