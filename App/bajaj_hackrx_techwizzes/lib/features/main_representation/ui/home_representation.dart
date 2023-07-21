@@ -1,5 +1,9 @@
+import 'package:bajaj_hackrx_techwizzes/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+import 'package:ternav_icons/ternav_icons.dart';
 
 import '../../watchlist/widgets/text_logo.dart';
 import '../widgets/top_performer.dart';
@@ -12,10 +16,56 @@ class HomeRepresentation extends StatefulWidget {
 }
 
 class _HomeRepresentationState extends State<HomeRepresentation> {
+  //DateTime now = DateTime.now();
+  String currentDateYear = DateFormat('MMM d, yyyy').format(DateTime.now());
+  String currentTime = DateFormat('h:mm a').format(DateTime.now());
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // appBar: AppBar(
+        //   //  backgroundColor: Colors.red,
+        //   leading: Container(
+        //     margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.w),
+        //     decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+        //     child: Image.asset(
+        //       'assets/images/user.png',
+        //       fit: BoxFit.contain,
+        //     ),
+        //   ),
+        //   centerTitle: true,
+        //   title: Column(
+        //     children: [
+        //       Text(
+        //         currentDateYear,
+        //         style: TextStyle(color: AppColors.textColor2, fontSize: 13.sp),
+        //       ),
+        //       Text(
+        //         currentTime,
+        //         style: TextStyle(
+        //             color: AppColors.textColor,
+        //             fontWeight: FontWeight.bold,
+        //             fontSize: 16.sp),
+        //       ),
+        //     ],
+        //   ),
+        //   actions: [
+        //     Container(
+        //       margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.w),
+        //       height: 40.w,
+        //       width: 35.w,
+        //       decoration: BoxDecoration(
+        //         borderRadius: BorderRadius.circular(10),
+        //         color: AppColors.blueColor,
+        //       ),
+        //       child: Icon(
+        //         TernavIcons.light.folder,
+        //         color: AppColors.backgroundColor,
+        //       ),
+        //     )
+        //   ],
+        // ),
         body: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Column(
@@ -26,7 +76,7 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                   alignment: Alignment.topLeft,
                   child: LogoTexts(
                     color: Colors.black,
-                    size: 21,
+                    size: 16.sp,
                     texts: "Today's Performers",
                     isBold: true,
                   ),
@@ -91,7 +141,7 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          height: 70,
+                          height: 80,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             border: Border.all(
