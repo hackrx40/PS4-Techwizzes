@@ -98,7 +98,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       height: 55,
                       width: 55,
                       child: Image.asset(
-                        'assets/Apple-Logo.png',
+                        'assets/icons/apple.png',
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),

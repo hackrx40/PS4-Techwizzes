@@ -37,6 +37,9 @@ dependencies:
   lottie: ^2.5.0
   fl_chart: ^0.63.0
   ternav_icons: ^1.0.0
+  flutter_screenutil: ^5.8.4
+  intl: ^0.18.1
+  google_fonts: ^5.1.0
 
 dev_dependencies:
   flutter_test:
