@@ -26,13 +26,16 @@ class _AllStocksState extends State<AllStocks> {
               color: AppColors.textColor, fontWeight: FontWeight.bold),
         ),
       ),
-      body: ListView.builder(
-          itemCount: 15,
-          shrinkWrap: true,
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return const StocksListTile2();
-          }),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: ListView.builder(
+            itemCount: 15,
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
+            itemBuilder: (context, index) {
+              return const StocksListTile2();
+            }),
+      ),
     );
   }
 }
