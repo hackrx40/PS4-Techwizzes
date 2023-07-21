@@ -1,3 +1,4 @@
+import 'package:bajaj_hackrx_techwizzes/features/home/widegts/search_textfield.dart';
 import 'package:bajaj_hackrx_techwizzes/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -16,7 +17,6 @@ class HomeRepresentation extends StatefulWidget {
 }
 
 class _HomeRepresentationState extends State<HomeRepresentation> {
-  //DateTime now = DateTime.now();
   String currentDateYear = DateFormat('MMM d, yyyy').format(DateTime.now());
   String currentTime = DateFormat('h:mm a').format(DateTime.now());
 
@@ -24,6 +24,7 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           //  backgroundColor: Colors.red,
           leading: Container(
@@ -70,20 +71,27 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 10),
+            searchTextField(
+                hintText: 'Search stocks, funds, commodities,etc.',
+                prefixIcon: Icon(
+                  TernavIcons.lightOutline.search,
+                  color: Colors.grey.shade400,
+                )),
+            const SizedBox(height: 15),
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Today\'s Performers',
                   style: TextStyle(
                       letterSpacing: 1,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.bold,
                       fontSize: 16.sp),
                 )),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
                 height: 220,
                 decoration: BoxDecoration(
