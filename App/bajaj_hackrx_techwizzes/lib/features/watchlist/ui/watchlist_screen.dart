@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../widgets/text_logo.dart';
 
-class MarketScreen extends StatefulWidget {
-  const MarketScreen({super.key});
+class WatchlistScreen extends StatefulWidget {
+  const WatchlistScreen({super.key});
 
   @override
-  State<MarketScreen> createState() => _MarketScreenState();
+  State<WatchlistScreen> createState() => _WatchlistScreenState();
 }
 
-class _MarketScreenState extends State<MarketScreen> {
+class _WatchlistScreenState extends State<WatchlistScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -61,7 +61,7 @@ class _MarketScreenState extends State<MarketScreen> {
                                     color: Colors.grey[300],
                                   ),
                                   child: Image.asset(
-                                    'assets/Apple-Logo.png',
+                                    'assets/icons/apple.png',
                                   ),
                                 ),
                                 const SizedBox(
