@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
       ),
-      child: Container(
+      child: SizedBox(
         height: kBottomNavigationBarHeight,
         child: BottomNavigationBar(
           currentIndex: currentIndex,

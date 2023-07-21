@@ -13,6 +13,7 @@ Widget searchTextField({
       keyboardType: keybordType,
       cursorColor: Colors.grey[400],
       autofocus: false,
+      style: const TextStyle(color: Colors.grey),
       decoration: InputDecoration(
         isDense: true,
         hintText: hintText,

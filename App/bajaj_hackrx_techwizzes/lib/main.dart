@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             textTheme: GoogleFonts.poppinsTextTheme(),
-            useMaterial3: true,
+            //useMaterial3: true,
           ),
           home: const SplashScreen(),
         );
