@@ -1,16 +1,16 @@
+import 'package:bajaj_hackrx_techwizzes/features/all_stocks/widgets/stack_list_tile.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/app_colors.dart';
-import '../../all_stocks/widgets/stack_list_tile.dart';
 
-class WatchlistScreen extends StatefulWidget {
-  const WatchlistScreen({super.key});
+class AllStocks extends StatefulWidget {
+  const AllStocks({super.key});
 
   @override
-  State<WatchlistScreen> createState() => _WatchlistScreenState();
+  State<AllStocks> createState() => _AllStocksState();
 }
 
-class _WatchlistScreenState extends State<WatchlistScreen> {
+class _AllStocksState extends State<AllStocks> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +21,12 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
         title: Row(
           children: [
             Image.asset(
-              'assets/icons/tag.png',
+              'assets/icons/market.png',
               scale: 2,
             ),
             const SizedBox(width: 15),
             const Text(
-              'Watchlist',
+              'All Stocks',
               style: TextStyle(
                   color: AppColors.textColor, fontWeight: FontWeight.bold),
             ),

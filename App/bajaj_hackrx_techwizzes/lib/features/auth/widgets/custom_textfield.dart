@@ -28,22 +28,22 @@ Widget customTextField({
 
         suffixIcon: suffixIcon,
         //focusColor: kGrey,
-        fillColor: Colors.white,
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
+        fillColor: Colors.grey.shade100,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(
             Radius.circular(10.0),
           ),
           borderSide: BorderSide(
-            color: Colors.grey,
+            color: Colors.grey.shade200,
             width: 1,
           ),
         ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
+        focusedBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(
             Radius.circular(10.0),
           ),
           borderSide: BorderSide(
-            color: Colors.black54,
+            color: Colors.grey.shade200,
             width: 1,
           ),
         ),

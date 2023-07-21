@@ -1,6 +1,10 @@
 import 'package:bajaj_hackrx_techwizzes/features/main_representation/ui/home_representation.dart';
 import 'package:bajaj_hackrx_techwizzes/features/watchlist/ui/watchlist_screen.dart';
+import 'package:bajaj_hackrx_techwizzes/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:ternav_icons/ternav_icons.dart';
+
+import '../../all_stocks/ui/all_stocks.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,19 +14,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentIndex = 0;
   final List<Widget> _screens = const [
     HomeRepresentation(),
+    AllStocks(),
     WatchlistScreen(),
   ];
-  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: _buildBottomBar(),
-        body: IndexedStack(
-          children: _screens,
-        ));
+      bottomNavigationBar: _buildBottomBar(),
+      body: IndexedStack(
+        index: currentIndex,
+        children: _screens,
+      ),
+    );
   }
 
   Widget _buildBottomBar() {
@@ -36,25 +43,39 @@ class _HomeScreenState extends State<HomeScreen> {
         child: BottomNavigationBar(
           currentIndex: currentIndex,
           // backgroundColor: Colors.blue,
+
           showSelectedLabels: false,
           showUnselectedLabels: false,
           iconSize: 24,
           type: BottomNavigationBarType.fixed,
           selectedIconTheme: const IconThemeData(color: Colors.black),
           items: [
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               backgroundColor: Colors.transparent,
-              icon: Icon(Icons.home),
-              label: '',
+              icon: currentIndex == 0
+                  ? Icon(
+                      TernavIcons.bold.home_2,
+                      color: AppColors.blueColor,
+                    )
+                  : Icon(TernavIcons.bold.home_2),
+              label: 'Home',
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.search_rounded),
+            BottomNavigationBarItem(
+              icon: currentIndex == 1
+                  ? Icon(
+                      TernavIcons.bold.dollar,
+                      color: AppColors.blueColor,
+                    )
+                  : Icon(TernavIcons.bold.dollar),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: currentIndex == 2
-                  ? const Icon(Icons.add)
-                  : const Icon(Icons.network_ping_sharp),
+                  ? Icon(
+                      TernavIcons.bold.bookmark,
+                      color: AppColors.blueColor,
+                    )
+                  : Icon(TernavIcons.bold.bookmark),
               label: '',
             ),
           ],
