@@ -8,7 +8,7 @@ const tickerSchema = new mongoose.Schema({
   symbol: { type: String, required: true }, // Represents the ticker symbol
 });
 
-// Create a model using the schema
+
 const Ticker = mongoose.model('Ticker', tickerSchema);
 
 module.exports = Ticker;
