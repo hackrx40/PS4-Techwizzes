@@ -101,26 +101,27 @@ class LoginScreen extends StatelessWidget {
                 height: size.height * 0.03,
               ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      maximumSize: const Size(double.maxFinite, 45),
-                      minimumSize: const Size(double.maxFinite, 45),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10))),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      letterSpacing: 0.5,
-                    ),
-                  ))
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    maximumSize: const Size(double.maxFinite, 45),
+                    minimumSize: const Size(double.maxFinite, 45),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10))),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    letterSpacing: 0.5,
+                  ),
+                ),
+              )
             ],
           ),
         ),
