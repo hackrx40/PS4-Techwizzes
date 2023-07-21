@@ -9,6 +9,12 @@ exports.signup = async (req, res) => {
     try {
         const { name, clientCode, pin } = req.body;
         //checking if existing one
+        if(!name || !clientCode || !pin){
+            return res.status(400).json({
+                success: false,
+                message: "Please enter all the fields!!",
+            })
+        }
         const existingUser = await User.findOne({ clientCode: clientCode });
         if (existingUser) {
             return res.status(400).json({
