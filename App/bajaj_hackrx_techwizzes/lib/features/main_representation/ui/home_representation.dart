@@ -6,6 +6,7 @@ class HomeRepresentation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: Colors.blueGrey,
       body: Text("Home Representation"),
     );
   }
