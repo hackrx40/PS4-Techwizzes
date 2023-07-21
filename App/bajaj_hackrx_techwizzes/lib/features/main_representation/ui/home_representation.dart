@@ -37,20 +37,9 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
             ),
           ),
           centerTitle: true,
-          title: Column(
-            children: [
-              Text(
-                currentDateYear,
-                style: TextStyle(color: AppColors.textColor2, fontSize: 13.sp),
-              ),
-              Text(
-                currentTime,
-                style: TextStyle(
-                    color: AppColors.textColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.sp),
-              ),
-            ],
+          title: Text(
+            currentDateYear,
+            style: TextStyle(color: AppColors.textColor, fontSize: 16.sp),
           ),
           actions: [
             Container(

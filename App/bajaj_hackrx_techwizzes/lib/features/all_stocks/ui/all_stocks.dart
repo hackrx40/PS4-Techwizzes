@@ -20,10 +20,19 @@ class _AllStocksState extends State<AllStocks> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: const Text(
-          'All Stocks',
-          style: TextStyle(
-              color: AppColors.textColor, fontWeight: FontWeight.bold),
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/icons/market.png',
+              scale: 2,
+            ),
+            const SizedBox(width: 15),
+            const Text(
+              'All Stocks',
+              style: TextStyle(
+                  color: AppColors.textColor, fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
       body: Padding(
