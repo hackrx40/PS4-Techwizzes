@@ -1,33 +1,13 @@
-
-const express = require('express');
 const fs = require('fs');
 
-const app = express();
-const port = 3000;
-
-
-app.get('/api/live-prices', (req, res) => {
-  fs.readFile('livePrice.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading stock data from the JSON file:', err);
-      return res.status(500).json({ error: 'Internal Server Error' });
-    }
-
-    try {
-      const jsonData = JSON.parse(data);
-      if (!jsonData || !jsonData.stocks || !Array.isArray(jsonData.stocks)) {
-        console.error('Invalid JSON format or missing "stocks" array.');
-        return res.status(500).json({ error: 'Internal Server Error' });
-      }
-
-      return res.json(jsonData.stocks);
-    } catch (error) {
-      console.error('Error parsing JSON data:', error);
-      return res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
-});
-
+function isWithinTradingHours() {
+  const now = new Date();
+  const tradingStartTime = new Date(now);
+  tradingStartTime.setHours(9, 15, 0, 0);
+  const tradingEndTime = new Date(now);
+  tradingEndTime.setHours(23, 55, 0, 0);
+  return now >= tradingStartTime && now <= tradingEndTime;
+}
 
 function modifyPrice(ltp) {
   const rupeeOptions = [-1.01,-2.12,-3.64,-4.43,-5.2,1,2.21,3.43,4.25,5];
@@ -36,7 +16,6 @@ function modifyPrice(ltp) {
   const newPrice = ltp + randomRupee;
   return parseFloat(newPrice.toFixed(2));
 }
-
 
 function updateStocksData(jsonData) {
   for (let i = 0; i < jsonData.stocks.length; i++) {
@@ -53,10 +32,10 @@ function updateStocksData(jsonData) {
     } else {
       console.log('Updated stock prices:', jsonData.stocks);
     }
-  });
+  })
 }
 
-setInterval(() => {
+function runStocksUpdate() {
   fs.readFile('livePrice.json', 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading stock data from the JSON file:', err);
@@ -66,16 +45,23 @@ setInterval(() => {
         if (!jsonData || !jsonData.stocks || !Array.isArray(jsonData.stocks)) {
           console.error('Invalid JSON format or missing "stocks" array.');
         } else {
-          updateStocksData(jsonData);
+          if (isWithinTradingHours()) {
+            updateStocksData(jsonData);
+          } else {
+            console.log("Market is closed");
+          }
         }
       } catch (error) {
         console.error('Error parsing JSON data:', error);
       }
     }
   });
-}, 1000);
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+}
 
+if (isWithinTradingHours()) {
+  setInterval(runStocksUpdate, 1000);
+} else {
+  console.log("Market is closed");
+}
 
+console.log('Stock update process initiated.');

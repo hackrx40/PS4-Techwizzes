@@ -1,9 +1,12 @@
 const Hisdata = require('../models/historicalPrice');
-const data = require('./pastPrices.json');
+const pastdata = require('./pastPrices.json');
+const newdata = require('./livePrice.json');
 
-exports.feedData = async(req, res) => {
-    for(i in data){
-        let feed = await Hisdata.create(data[i]);
-        console.log(data[i]);
+
+const feedData = async(req, res) => {
+    for(i in pastdata){
+        let data = await Hisdata.create(pastdata[i]);
+        console.log(data);
     }
 }
+feedData();
