@@ -1,10 +1,10 @@
 const fs = require('fs');
 
-function modifyPrice(price) {
+function modifyPrice(ltp) {
   const rupeeOptions = [-1.01,-2.12,-3.64,-4.43,-5.2,1,2.21,3.43,4.25,5];
   const getRandomValue = (options) => options[Math.floor(Math.random() * options.length)];
   const randomRupee = getRandomValue(rupeeOptions);
-  const newPrice = price + randomRupee;
+  const newPrice = ltp + randomRupee;
   return parseFloat(newPrice.toFixed(2));
 }
 
@@ -26,7 +26,7 @@ function updateStockPricesContinuously() {
 
       for (let i = 0; i < stocks.length; i++) {
         const stock = stocks[i];
-        stock.price = modifyPrice(stock.price);
+        stock.ltp = modifyPrice(stock.ltp);
         stock.lastUpdated = new Date().toISOString(); // Add current timestamp to 'lastUpdated'
       }
 
