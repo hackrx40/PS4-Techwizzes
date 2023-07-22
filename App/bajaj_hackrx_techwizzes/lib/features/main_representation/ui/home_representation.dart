@@ -38,7 +38,7 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
   }
 
   void startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
       setState(() {});
       getStockMarket();
     });
@@ -60,7 +60,12 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
         stockMarket = stockMarketList;
       });
     } else {
+      var dummy = [
+        {"currentPrice": "10", "marketCapRank": "1"}
+      ];
       print(response.statusCode);
+
+      stockMarketList = dummy.map((e) => StockModel.fromJson(e)).toList();
     }
   }
 
@@ -277,7 +282,9 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                                       ),
                                       lineBarsData: [
                                         LineChartBarData(
-                                          // spots: ,
+                                          // spots: stockMarketList.map((e) =>
+                                          //     FlSpot(
+                                          //         stockMarketList, y)),
                                           spots: const [
                                             FlSpot(0, 1),
                                             FlSpot(0.5, 0.5),
