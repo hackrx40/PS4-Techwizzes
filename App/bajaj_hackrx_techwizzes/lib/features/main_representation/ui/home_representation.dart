@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:bajaj_hackrx_techwizzes/data/temp_data.dart';
+import 'package:bajaj_hackrx_techwizzes/features/detail_view/ui/detail_screen.dart';
 import 'package:bajaj_hackrx_techwizzes/features/home/widegts/search_textfield.dart';
 import 'package:bajaj_hackrx_techwizzes/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,12 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
     super.initState();
   }
 
-  void startTimer() {}
+  void startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      setState(() {});
+      getStockMarket();
+    });
+  }
 
   Future<List<StockModel>?> getStockMarket() async {
     const url =
@@ -132,7 +139,7 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                           borderRadius: BorderRadius.circular(25),
                         ),
                         child: GridView.builder(
-                            itemCount: 4,
+                            itemCount: TopData().topData.length,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             gridDelegate:
@@ -141,7 +148,9 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                                     mainAxisSpacing: 15,
                                     crossAxisCount: 2),
                             itemBuilder: (context, index) {
-                              return const TopPerformers();
+                              return TopPerformers(
+                                data: TopData().topData[index],
+                              );
                             })),
                   ),
                 ),
@@ -166,169 +175,181 @@ class _HomeRepresentationState extends State<HomeRepresentation> {
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       StockModel data = stockMarket![index];
-                      return Container(
-                        height: 70.h,
-                        margin: const EdgeInsets.only(bottom: 10),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 16.w, vertical: 8.w),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            color: Colors.grey.shade100, //color of border
-                            width: 3, //width of border
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: 45.h,
-                              width: 45.h,
-                              padding: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.grey.shade200,
-                              ),
-                              child: Image.network(
-                                data.image,
-                              ),
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailScreen(
+                                        stockModel: data,
+                                      )));
+                        },
+                        child: Container(
+                          height: 70.h,
+                          margin: const EdgeInsets.only(bottom: 10),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16.w, vertical: 8.w),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: Colors.grey.shade100, //color of border
+                              width: 3, //width of border
                             ),
-                            const SizedBox(width: 15),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 45.h,
+                                width: 45.h,
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.grey.shade200,
+                                ),
+                                child: Image.network(
+                                  data.image,
+                                ),
+                              ),
+                              const SizedBox(width: 15),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    LogoTexts(
+                                      size: 14.sp,
+                                      color: AppColors.textColor,
+                                      texts: data.name,
+                                      isLetterSpacing: true,
+                                      isBold: true,
+                                    ),
+                                    LogoTexts(
+                                      size: 13,
+                                      color: Colors.grey,
+                                      texts: data.symbol,
+                                      isBold: false,
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 50,
+                                width: 60,
+                                child: LineChart(
+                                  LineChartData(
+                                      minX: 0,
+                                      minY: 0,
+                                      maxX: 10,
+                                      maxY: 10,
+                                      titlesData: const FlTitlesData(
+                                        show: true,
+                                        rightTitles: AxisTitles(
+                                          sideTitles:
+                                              SideTitles(showTitles: false),
+                                        ),
+                                        topTitles: AxisTitles(
+                                          sideTitles:
+                                              SideTitles(showTitles: false),
+                                        ),
+                                        bottomTitles: AxisTitles(
+                                          sideTitles: SideTitles(
+                                            showTitles: false,
+                                          ),
+                                        ),
+                                        leftTitles: AxisTitles(
+                                          sideTitles: SideTitles(
+                                            showTitles: false,
+                                          ),
+                                        ),
+                                      ),
+                                      borderData: FlBorderData(
+                                        show: false,
+                                      ),
+                                      gridData: FlGridData(
+                                        getDrawingHorizontalLine: (value) =>
+                                            const FlLine(
+                                          strokeWidth: 0,
+                                        ),
+                                        getDrawingVerticalLine: (value) =>
+                                            const FlLine(strokeWidth: 0),
+                                      ),
+                                      lineBarsData: [
+                                        LineChartBarData(
+                                          // spots: ,
+                                          spots: const [
+                                            FlSpot(0, 1),
+                                            FlSpot(0.5, 0.5),
+                                            FlSpot(1, 2),
+                                            FlSpot(1.5, 2.5),
+                                            FlSpot(2, 4),
+                                            FlSpot(2.2, 4.8),
+                                            FlSpot(2.5, 4.5),
+                                            FlSpot(3, 1),
+                                            FlSpot(4, 3),
+                                            FlSpot(5, 8),
+                                            FlSpot(6, 3),
+                                            FlSpot(7, 5),
+                                            FlSpot(8, 1),
+                                            FlSpot(9, 3),
+                                            FlSpot(10, 6)
+                                          ],
+                                          isCurved: true,
+                                          dotData: const FlDotData(show: false),
+                                          barWidth: 3,
+                                          belowBarData: BarAreaData(
+                                            show: false,
+                                          ),
+                                          gradient:
+                                              const LinearGradient(colors: [
+                                            Color(0XFFA4BEF4),
+                                            Color(0XFF3BA8B3),
+                                          ]),
+                                        ),
+                                      ]),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 20.w,
+                              ),
+                              Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  LogoTexts(
-                                    size: 14.sp,
-                                    color: AppColors.textColor,
-                                    texts: data.name,
-                                    isLetterSpacing: true,
-                                    isBold: true,
+                                  Container(
+                                    height: 25.h,
+                                    // width: 50,
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 6.w),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: data.priceChangePercentage24H < 0
+                                          ? Colors.red
+                                          : const Color(0XFF2ECB7F),
+                                    ),
+                                    child: Align(
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          data.priceChangePercentage24H
+                                              .toString(),
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12.sp),
+                                        )),
                                   ),
-                                  LogoTexts(
-                                    size: 13,
-                                    color: Colors.grey,
-                                    texts: data.symbol,
-                                    isBold: false,
-                                  )
+                                  Text(
+                                    data.currentPrice.toString(),
+                                    style: TextStyle(
+                                        fontSize: 15.sp,
+                                        letterSpacing: 1,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 50,
-                              width: 60,
-                              child: LineChart(
-                                LineChartData(
-                                    minX: 0,
-                                    minY: 0,
-                                    maxX: 10,
-                                    maxY: 10,
-                                    titlesData: const FlTitlesData(
-                                      show: true,
-                                      rightTitles: AxisTitles(
-                                        sideTitles:
-                                            SideTitles(showTitles: false),
-                                      ),
-                                      topTitles: AxisTitles(
-                                        sideTitles:
-                                            SideTitles(showTitles: false),
-                                      ),
-                                      bottomTitles: AxisTitles(
-                                        sideTitles: SideTitles(
-                                          showTitles: false,
-                                        ),
-                                      ),
-                                      leftTitles: AxisTitles(
-                                        sideTitles: SideTitles(
-                                          showTitles: false,
-                                        ),
-                                      ),
-                                    ),
-                                    borderData: FlBorderData(
-                                      show: false,
-                                    ),
-                                    gridData: FlGridData(
-                                      getDrawingHorizontalLine: (value) =>
-                                          const FlLine(
-                                        strokeWidth: 0,
-                                      ),
-                                      getDrawingVerticalLine: (value) =>
-                                          const FlLine(strokeWidth: 0),
-                                    ),
-                                    lineBarsData: [
-                                      LineChartBarData(
-                                        // spots: ,
-                                        spots: const [
-                                          FlSpot(0, 1),
-                                          FlSpot(0.5, 0.5),
-                                          FlSpot(1, 2),
-                                          FlSpot(1.5, 2.5),
-                                          FlSpot(2, 4),
-                                          FlSpot(2.2, 4.8),
-                                          FlSpot(2.5, 4.5),
-                                          FlSpot(3, 1),
-                                          FlSpot(4, 3),
-                                          FlSpot(5, 8),
-                                          FlSpot(6, 3),
-                                          FlSpot(7, 5),
-                                          FlSpot(8, 1),
-                                          FlSpot(9, 3),
-                                          FlSpot(10, 6)
-                                        ],
-                                        isCurved: true,
-                                        dotData: const FlDotData(show: false),
-                                        barWidth: 3,
-                                        belowBarData: BarAreaData(
-                                          show: false,
-                                        ),
-                                        gradient: const LinearGradient(colors: [
-                                          Color(0XFFA4BEF4),
-                                          Color(0XFF3BA8B3),
-                                        ]),
-                                      ),
-                                    ]),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Container(
-                                  height: 25.h,
-                                  // width: 50,
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 6.w),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color: data.priceChangePercentage24H < 0
-                                        ? Colors.red
-                                        : const Color(0XFF2ECB7F),
-                                  ),
-                                  child: Align(
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        data.priceChangePercentage24H
-                                            .toString(),
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12.sp),
-                                      )),
-                                ),
-                                Text(
-                                  data.currentPrice.toString(),
-                                  style: TextStyle(
-                                      fontSize: 15.sp,
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       );
                     }),

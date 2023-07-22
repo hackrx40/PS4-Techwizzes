@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:bajaj_hackrx_techwizzes/features/all_stocks/widgets/stack_list_tile.dart';
+import 'package:bajaj_hackrx_techwizzes/features/detail_view/ui/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,13 +19,18 @@ class AllStocks extends StatefulWidget {
 class _AllStocksState extends State<AllStocks> {
   List? stockMarket = [];
   var stockMarketList;
+  Timer? _timer;
   @override
   void initState() {
     getStockMarket();
     super.initState();
   }
 
-  void startTimer() {}
+  void startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      getStockMarket();
+    });
+  }
 
   Future<List<StockModel>?> getStockMarket() async {
     const url =
@@ -75,8 +82,17 @@ class _AllStocksState extends State<AllStocks> {
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
               StockModel data = stockMarket![index];
-              return StocksListTile2(
-                data: data,
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              DetailScreen(stockModel: data)));
+                },
+                child: StocksListTile2(
+                  data: data,
+                ),
               );
             }),
       ),

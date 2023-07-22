@@ -1,8 +1,14 @@
+import 'package:bajaj_hackrx_techwizzes/models/stock_model/stock_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ternav_icons/ternav_icons.dart';
+
+import '../../../utils/app_colors.dart';
 
 class DetailScreen extends StatefulWidget {
-  const DetailScreen({super.key});
+  final StockModel stockModel;
+  const DetailScreen({super.key, required this.stockModel});
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -87,226 +93,233 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20, left: 13, right: 13),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      height: 55,
-                      width: 55,
-                      child: Image.asset(
-                        'assets/icons/apple.png',
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          automaticallyImplyLeading: true,
+          iconTheme: const IconThemeData(color: AppColors.textColor),
+          centerTitle: true,
+          title: Text(
+            '',
+            style: TextStyle(color: AppColors.textColor, fontSize: 16.sp),
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 20, left: 13, right: 13),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    height: 55,
+                    width: 55,
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.grey[300],
+                    ),
+                    child: Image.network(
+                      widget.stockModel.image,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.stockModel.name,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600),
                       ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.grey[300],
+                      const SizedBox(
+                        height: 4,
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Apple Inc.',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600),
+                      Text(
+                        widget.stockModel.symbol,
+                        style: const TextStyle(
+                          color: Colors.grey,
+                          fontSize: 13,
                         ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        Text(
-                          'AAPL',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 110,
+                  ),
+                  Container(
+                    height: 43,
+                    width: 45,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0XFF2ECB7F),
                     ),
-                    SizedBox(
-                      width: 110,
-                    ),
-                    Container(
+                    child: const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'BUY',
+                          style: TextStyle(color: Colors.white),
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
                       height: 43,
                       width: 45,
-                      child: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'BUY',
-                            style: TextStyle(color: Colors.white),
-                          )),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0XFF2ECB7F),
+                        color: Colors.grey[200],
                       ),
+                      child: const Icon(Icons.show_chart),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 43,
-                        width: 45,
-                        child: Icon(Icons.show_chart),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.grey[200],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 40),
+              Container(
+                height: 350,
+                child: LineChart(
+                  LineChartData(
+                      minX: 0,
+                      minY: 0,
+                      maxX: 10,
+                      maxY: 10,
+                      titlesData: FlTitlesData(
+                        show: true,
+                        rightTitles: const AxisTitles(
+                          sideTitles: SideTitles(showTitles: false),
+                        ),
+                        topTitles: const AxisTitles(
+                          sideTitles: SideTitles(showTitles: false),
+                        ),
+                        bottomTitles: AxisTitles(
+                          sideTitles: SideTitles(
+                            showTitles: true,
+                            reservedSize: 30,
+                            interval: 1,
+                            getTitlesWidget: bottomTitleWidgets,
+                          ),
+                        ),
+                        leftTitles: AxisTitles(
+                          sideTitles: SideTitles(
+                            showTitles: true,
+                            interval: 1,
+                            getTitlesWidget: leftTitleWidgets,
+                            reservedSize: 42,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                      borderData: FlBorderData(
+                        show: false,
+                      ),
+                      gridData: FlGridData(
+                        getDrawingHorizontalLine: (value) => const FlLine(
+                          strokeWidth: 0,
+                        ),
+                        getDrawingVerticalLine: (value) =>
+                            const FlLine(strokeWidth: 0),
+                      ),
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: const [
+                            FlSpot(0, 1),
+                            FlSpot(0.5, 0.5),
+                            FlSpot(1, 2),
+                            FlSpot(1.5, 2.5),
+                            FlSpot(2, 4),
+                            FlSpot(2.2, 4.8),
+                            FlSpot(2.5, 4.5),
+                            FlSpot(3, 1),
+                            FlSpot(4, 3),
+                            FlSpot(5, 8),
+                            FlSpot(6, 3),
+                            FlSpot(7, 5),
+                            FlSpot(8, 1),
+                            FlSpot(9, 3),
+                            FlSpot(10, 6)
+                          ],
+                          isCurved: true,
+                          dotData: FlDotData(show: false),
+                          barWidth: 3,
+                          belowBarData: BarAreaData(
+                            show: true,
+                            gradient: LinearGradient(
+                                begin: Alignment.bottomLeft,
+                                colors: [
+                                  const Color.fromARGB(0, 163, 235, 194)
+                                      .withOpacity(0.3),
+                                  const Color.fromARGB(0, 86, 194, 239)
+                                      .withOpacity(0.3),
+                                ]),
+                          ),
+                          gradient: const LinearGradient(colors: [
+                            Color(0XFFA4BEF4),
+                            Color(0XFF3BA8B3),
+                          ]),
+                        ),
+                      ]),
                 ),
-                SizedBox(height: 40),
-                Container(
-                  height: 350,
-                  child: LineChart(
-                    LineChartData(
-                        minX: 0,
-                        minY: 0,
-                        maxX: 10,
-                        maxY: 10,
-                        titlesData: FlTitlesData(
-                          show: true,
-                          rightTitles: const AxisTitles(
-                            sideTitles: SideTitles(showTitles: false),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(13)),
+                child: ListView.builder(
+                  itemCount: texts.length,
+                  itemBuilder: (context, index) {
+                    bool isTapped = (index == tappedIndex);
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          tappedIndex = index;
+                          istaped = true;
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 3.0, vertical: 5.0),
+                        child: Container(
+                          width: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
+                            color: tappedIndex == index
+                                ? Colors.black
+                                : Colors.transparent,
                           ),
-                          topTitles: const AxisTitles(
-                            sideTitles: SideTitles(showTitles: false),
-                          ),
-                          bottomTitles: AxisTitles(
-                            sideTitles: SideTitles(
-                              showTitles: true,
-                              reservedSize: 30,
-                              interval: 1,
-                              getTitlesWidget: bottomTitleWidgets,
-                            ),
-                          ),
-                          leftTitles: AxisTitles(
-                            sideTitles: SideTitles(
-                              showTitles: true,
-                              interval: 1,
-                              getTitlesWidget: leftTitleWidgets,
-                              reservedSize: 42,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              texts[index],
+                              style: TextStyle(
+                                  color: tappedIndex == index
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ),
                         ),
-                        borderData: FlBorderData(
-                          show: false,
-                        ),
-                        gridData: FlGridData(
-                          getDrawingHorizontalLine: (value) => FlLine(
-                            strokeWidth: 0,
-                          ),
-                          getDrawingVerticalLine: (value) =>
-                              FlLine(strokeWidth: 0),
-                        ),
-                        lineBarsData: [
-                          LineChartBarData(
-                            spots: [
-                              FlSpot(0, 1),
-                              FlSpot(0.5, 0.5),
-                              FlSpot(1, 2),
-                              FlSpot(1.5, 2.5),
-                              FlSpot(2, 4),
-                              FlSpot(2.2, 4.8),
-                              FlSpot(2.5, 4.5),
-                              FlSpot(3, 1),
-                              FlSpot(4, 3),
-                              FlSpot(5, 8),
-                              FlSpot(6, 3),
-                              FlSpot(7, 5),
-                              FlSpot(8, 1),
-                              FlSpot(9, 3),
-                              FlSpot(10, 6)
-                            ],
-                            isCurved: true,
-                            dotData: FlDotData(show: false),
-                            barWidth: 3,
-                            belowBarData: BarAreaData(
-                              show: true,
-                              gradient: LinearGradient(
-                                  begin: Alignment.bottomLeft,
-                                  colors: [
-                                    Color.fromARGB(0, 163, 235, 194)
-                                        .withOpacity(0.3),
-                                    Color.fromARGB(0, 86, 194, 239)
-                                        .withOpacity(0.3),
-                                  ]),
-                            ),
-                            gradient: LinearGradient(colors: [
-                              Color(0XFFA4BEF4),
-                              Color(0XFF3BA8B3),
-                            ]),
-                          ),
-                        ]),
-                  ),
+                      ),
+                    );
+                  },
+                  scrollDirection: Axis.horizontal,
                 ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  height: 40,
-                  decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(13)),
-                  child: ListView.builder(
-                    itemCount: texts.length,
-                    itemBuilder: (context, index) {
-                      bool isTapped = (index == tappedIndex);
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            tappedIndex = index;
-                            istaped = true;
-                          });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 3.0, vertical: 5.0),
-                          child: Container(
-                            width: 40,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(7),
-                              color: tappedIndex == index
-                                  ? Colors.black
-                                  : Colors.transparent,
-                            ),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                texts[index],
-                                style: TextStyle(
-                                    color: tappedIndex == index
-                                        ? Colors.white
-                                        : Colors.black,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                    scrollDirection: Axis.horizontal,
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                //  ListView.builder(
-                //   itemBuilder: (context, index){
-                //      return Container(
-                //       child: Container(),
-                //      );
-                //   }
+              ),
 
-                //  ),
-              ],
-            ),
+              //  ListView.builder(
+              //   itemBuilder: (context, index){
+              //      return Container(
+              //       child: Container(),
+              //      );
+              //   }
+              //  ),
+            ],
           ),
         ),
       ),
