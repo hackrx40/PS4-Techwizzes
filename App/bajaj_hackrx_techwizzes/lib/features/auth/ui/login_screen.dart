@@ -1,13 +1,30 @@
 import 'package:bajaj_hackrx_techwizzes/features/auth/ui/sign_up.dart';
 import 'package:bajaj_hackrx_techwizzes/features/home/ui/home_screen.dart';
+import 'package:bajaj_hackrx_techwizzes/services/auth/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../utils/app_colors.dart';
 import '../widgets/custom_textfield.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final AuthServices authServices = AuthServices();
+  bool isLoading = false;
+  final TextEditingController clientCodeController = TextEditingController();
+  final TextEditingController pinController = TextEditingController();
+  @override
+  void dispose() {
+    clientCodeController.dispose();
+    pinController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +95,9 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     height: size.height * 0.01,
                   ),
-                  customTextField(hintText: 'Enter your client code'),
+                  customTextField(
+                      controller: clientCodeController,
+                      hintText: 'Enter your client code'),
                   SizedBox(
                     height: size.height * 0.02,
                   ),
@@ -95,6 +114,7 @@ class LoginScreen extends StatelessWidget {
                     height: size.height * 0.01,
                   ),
                   customTextField(
+                    controller: pinController,
                     hintText: 'Enter your pin',
                     suffixIcon: const Icon(
                       Icons.visibility_off,
@@ -120,10 +140,23 @@ class LoginScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen()));
+                      // print(clientCodeController.text);
+                      // print(pinController.text);
+                      setState(() {
+                        isLoading = true;
+                      });
+                      authServices.loginInUser(
+                          context: context,
+                          code: clientCodeController.text.toUpperCase(),
+                          pin: pinController.text.toString());
+                      setState(() {
+                        isLoading = false;
+                      });
+
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const HomeScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,
@@ -131,14 +164,16 @@ class LoginScreen extends StatelessWidget {
                         minimumSize: const Size(double.maxFinite, 45),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        letterSpacing: 0.5,
-                      ),
-                    ),
+                    child: isLoading
+                        ? const CircularProgressIndicator()
+                        : const Text(
+                            'Login',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
                   ),
                   SizedBox(
                     height: size.height * 0.03,

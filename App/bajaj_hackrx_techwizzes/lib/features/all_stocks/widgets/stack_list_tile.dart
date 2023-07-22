@@ -1,3 +1,4 @@
+import 'package:bajaj_hackrx_techwizzes/models/stock_model/stock_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,8 +8,10 @@ import '../../../utils/app_colors.dart';
 import '../../watchlist/widgets/text_logo.dart';
 
 class StocksListTile2 extends StatelessWidget {
+  final StockModel data;
   const StocksListTile2({
     super.key,
+    required this.data,
   });
 
   @override
@@ -34,14 +37,14 @@ class StocksListTile2 extends StatelessWidget {
               LogoTexts(
                 size: 14.sp,
                 color: AppColors.textColor,
-                texts: 'Apple Inc.',
+                texts: data.name,
                 isLetterSpacing: true,
                 isBold: true,
               ),
-              const LogoTexts(
+              LogoTexts(
                 size: 13,
                 color: Colors.grey,
-                texts: 'AAPL',
+                texts: data.symbol,
                 isBold: false,
               )
             ],
@@ -134,17 +137,19 @@ class StocksListTile2 extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 6.w),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: const Color(0XFF2ECB7F),
+                  color: data.priceChangePercentage24H < 0
+                      ? Colors.red
+                      : const Color(0XFF2ECB7F),
                 ),
                 child: Align(
                     alignment: Alignment.center,
                     child: Text(
-                      '+2.65',
+                      data.priceChangePercentage24H.toString(),
                       style: TextStyle(color: Colors.white, fontSize: 12.sp),
                     )),
               ),
               Text(
-                '176.23',
+                data.currentPrice.toString(),
                 style: TextStyle(
                     fontSize: 15.sp,
                     letterSpacing: 1,
@@ -152,14 +157,6 @@ class StocksListTile2 extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(
-            onPressed: () {},
-            splashRadius: 20,
-            icon: Icon(
-              TernavIcons.light.bookmark,
-              color: AppColors.textColor2,
-            ),
-          )
         ],
       ),
     );

@@ -1,8 +1,16 @@
+import 'dart:convert';
+
+import 'package:bajaj_hackrx_techwizzes/features/detail_view/widgets/base64conv.dart';
+import 'package:bajaj_hackrx_techwizzes/models/stock_model/stock_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../utils/app_colors.dart';
 
 class DetailScreen extends StatefulWidget {
-  const DetailScreen({super.key});
+  final StockModel stockModel;
+  const DetailScreen({super.key, required this.stockModel});
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -83,85 +91,101 @@ class _DetailScreenState extends State<DetailScreen> {
     return Text(text, style: style, textAlign: TextAlign.left);
   }
 
+  String url =
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhJUhflI9wpU_FfEramW3wvLayvpPQaIIYiQ&usqp=CAU';
+  var base64ConvertedString = "";
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          automaticallyImplyLeading: true,
+          iconTheme: const IconThemeData(color: AppColors.textColor),
+          centerTitle: true,
+          title: Text(
+            'Detail Screen',
+            style: TextStyle(color: AppColors.textColor, fontSize: 16.sp),
+          ),
+        ),
+        body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 20, left: 13, right: 13),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
                     Container(
                       height: 55,
                       width: 55,
-                      child: Image.asset(
-                        'assets/icons/apple.png',
-                      ),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.grey[300],
                       ),
+                      child: Image.network(
+                        widget.stockModel.image,
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Apple Inc.',
-                          style: TextStyle(
+                          widget.stockModel.name,
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 17,
                               fontWeight: FontWeight.w600),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 4,
                         ),
                         Text(
-                          'AAPL',
-                          style: TextStyle(
+                          widget.stockModel.symbol,
+                          style: const TextStyle(
                             color: Colors.grey,
                             fontSize: 13,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 110,
                     ),
                     Container(
                       height: 43,
                       width: 45,
-                      child: Align(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color(0XFF2ECB7F),
+                      ),
+                      child: const Align(
                           alignment: Alignment.center,
                           child: Text(
                             'BUY',
                             style: TextStyle(color: Colors.white),
                           )),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color(0XFF2ECB7F),
-                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         height: 43,
                         width: 45,
-                        child: Icon(Icons.show_chart),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.grey[200],
                         ),
+                        child: const Icon(Icons.show_chart),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Container(
                   height: 350,
                   child: LineChart(
@@ -199,15 +223,15 @@ class _DetailScreenState extends State<DetailScreen> {
                           show: false,
                         ),
                         gridData: FlGridData(
-                          getDrawingHorizontalLine: (value) => FlLine(
+                          getDrawingHorizontalLine: (value) => const FlLine(
                             strokeWidth: 0,
                           ),
                           getDrawingVerticalLine: (value) =>
-                              FlLine(strokeWidth: 0),
+                              const FlLine(strokeWidth: 0),
                         ),
                         lineBarsData: [
                           LineChartBarData(
-                            spots: [
+                            spots: const [
                               FlSpot(0, 1),
                               FlSpot(0.5, 0.5),
                               FlSpot(1, 2),
@@ -232,13 +256,13 @@ class _DetailScreenState extends State<DetailScreen> {
                               gradient: LinearGradient(
                                   begin: Alignment.bottomLeft,
                                   colors: [
-                                    Color.fromARGB(0, 163, 235, 194)
+                                    const Color.fromARGB(0, 163, 235, 194)
                                         .withOpacity(0.3),
-                                    Color.fromARGB(0, 86, 194, 239)
+                                    const Color.fromARGB(0, 86, 194, 239)
                                         .withOpacity(0.3),
                                   ]),
                             ),
-                            gradient: LinearGradient(colors: [
+                            gradient: const LinearGradient(colors: [
                               Color(0XFFA4BEF4),
                               Color(0XFF3BA8B3),
                             ]),
@@ -246,7 +270,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ]),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
@@ -294,17 +318,20 @@ class _DetailScreenState extends State<DetailScreen> {
                     scrollDirection: Axis.horizontal,
                   ),
                 ),
-                SizedBox(
-                  height: 20,
+                const SizedBox(height: 15),
+                Text(
+                  "Image Processing",
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
                 ),
-                //  ListView.builder(
-                //   itemBuilder: (context, index){
-                //      return Container(
-                //       child: Container(),
-                //      );
-                //   }
-
-                //  ),
+                const SizedBox(height: 15),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Image.network(url),
+                ),
+                const SizedBox(height: 15),
               ],
             ),
           ),

@@ -101,3 +101,11 @@ To run the app you need to have an online emulator or a plugged device and run t
 ## Future endeavor -
 
 We are dedicated to constantly improving our platform to offer an unmatched experience as part of our unrelenting quest to empower consumers in making educated investing decisions. The launch of Multiple Watchlists is one of the intriguing new features we are working on. Users will be able to establish and maintain several watchlists thanks to this improvement, which will improve organisation and make it simple to compare past performance across various investment alternatives. The ability to compare the previous performances allows clients to get important insights and make wiser decisions.We also understand the need of risk analysis in making investing decisions. Each watchlist in our system will have a separate Risk Profile component to meet this demand. Clients will be shown a wide range of important risk ratios in this area, including alpha, beta, variance, standard deviation, and Sharpe ratio. With access to this crucial information, customers may learn more about the possible returns and dangers of their investments, empowering them to make decisions with confidence and clarity.Our dedication for making sure that our users have access to the most reliable and user-friendly platform possible motivates us to always innovate and develop. We are dedicated to transform the investing environment with these planned improvements, giving our users the tools they need to successfully navigate the financial markets and reach their financial objectives.
+
+## Screen shots
+
+ <img src="screenshots/1.png" height=500>    | <img src="screenshots/2.png" height=500>   
+ <img src="screenshots/3.png" height=500>    | <img src="screenshots/4.png" height=500>
+
+
+
