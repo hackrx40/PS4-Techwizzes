@@ -104,8 +104,9 @@ We are dedicated to constantly improving our platform to offer an unmatched expe
 
 ## Screen shots
 
- <img src="screenshots/1.png" height=500>    | <img src="screenshots/2.png" height=500>   
- <img src="screenshots/3.png" height=500>    | <img src="screenshots/4.png" height=500>
+ <img src="screenshots/1.png" height=500>    | <img src="screenshots/2.png" height=500>   |<img src="screenshots/3.png" height=500> 
+ <img src="screenshots/4.png" height=500>    | <img src="screenshots/5.png" height=500>   |<img src="screenshots/6.png" height=500>
+ <img src="screenshots/7.png" height=500>
 
 
 
