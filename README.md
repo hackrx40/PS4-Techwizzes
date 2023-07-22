@@ -101,3 +101,15 @@ To run the app you need to have an online emulator or a plugged device and run t
 ## Future endeavor -
 
 We are dedicated to constantly improving our platform to offer an unmatched experience as part of our unrelenting quest to empower consumers in making educated investing decisions. The launch of Multiple Watchlists is one of the intriguing new features we are working on. Users will be able to establish and maintain several watchlists thanks to this improvement, which will improve organisation and make it simple to compare past performance across various investment alternatives. The ability to compare the previous performances allows clients to get important insights and make wiser decisions.We also understand the need of risk analysis in making investing decisions. Each watchlist in our system will have a separate Risk Profile component to meet this demand. Clients will be shown a wide range of important risk ratios in this area, including alpha, beta, variance, standard deviation, and Sharpe ratio. With access to this crucial information, customers may learn more about the possible returns and dangers of their investments, empowering them to make decisions with confidence and clarity.Our dedication for making sure that our users have access to the most reliable and user-friendly platform possible motivates us to always innovate and develop. We are dedicated to transform the investing environment with these planned improvements, giving our users the tools they need to successfully navigate the financial markets and reach their financial objectives.
+
+## Screen shots
+
+![f4dd9b97-3534-4be9-b520-2b18ed504b19](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/95bd861a-a232-46fd-8bd4-c7d43ddf85aa)
+![ab407925-4374-4151-b94d-411fa9b9423d](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/df10e540-bdef-4406-9c3f-1bafc296274a)
+![0375aa8e-444b-42c4-bf7b-b7338b0fe202](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/66bd53fc-1136-4274-b421-10f9cfc2b370)
+![7219220c-06ac-4dff-be72-6bdef1b6a1f5](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/48f8d7be-7adf-43a4-ae35-c30c0e83a57c)
+![f2f64eee-2d69-4bef-89f6-1cb3f804f733](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/fee210e8-cc75-485e-9449-4d11ce0f3c58)
+![5dbf7f43-ee07-43d0-8dba-bbcfa4733008](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/90eb86e0-c7bf-4a68-93a5-fc4b65a617c4)
+![e24c04dc-a0db-4103-b36f-06f252369233](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/8ca289f9-e529-4e8c-9d2b-8fdbc479b7cf)
+
+
