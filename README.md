@@ -104,12 +104,8 @@ We are dedicated to constantly improving our platform to offer an unmatched expe
 
 ## Screen shots
 
-![f4dd9b97-3534-4be9-b520-2b18ed504b19](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/95bd861a-a232-46fd-8bd4-c7d43ddf85aa)
-![ab407925-4374-4151-b94d-411fa9b9423d](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/df10e540-bdef-4406-9c3f-1bafc296274a)
-![0375aa8e-444b-42c4-bf7b-b7338b0fe202](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/66bd53fc-1136-4274-b421-10f9cfc2b370)
-![7219220c-06ac-4dff-be72-6bdef1b6a1f5](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/48f8d7be-7adf-43a4-ae35-c30c0e83a57c)
-![f2f64eee-2d69-4bef-89f6-1cb3f804f733](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/fee210e8-cc75-485e-9449-4d11ce0f3c58)
-![5dbf7f43-ee07-43d0-8dba-bbcfa4733008](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/90eb86e0-c7bf-4a68-93a5-fc4b65a617c4)
-![e24c04dc-a0db-4103-b36f-06f252369233](https://github.com/hackrx40/PS4-Techwizzes/assets/99645798/8ca289f9-e529-4e8c-9d2b-8fdbc479b7cf)
+ <img src="screenshots/1.png" height=500>    | <img src="screenshots/2.png" height=500>   
+ <img src="screenshots/3.png" height=500>    | <img src="screenshots/4.png" height=500>
+
 
 
